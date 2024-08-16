@@ -8,6 +8,6 @@ urlpatterns =[
   path('doctors',doctor_page, name='doctors'),
   path('doctor', single_doctor_page, name='doctor'),
   path('departments', department_page, name='departments'),
-  path('department', single_department_page,name='department'),
+  path('department/<slug:slug>', single_department_page,name='department'),
 
 ]
