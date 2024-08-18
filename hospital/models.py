@@ -1,6 +1,7 @@
 from django.db import models
 from tinymce.models import HTMLField  
 from autoslug import AutoSlugField
+from django.utils import timezone
 # Create your models here.
 class Service(models.Model):
     name = models.CharField(max_length=200)
@@ -63,3 +64,18 @@ class Doctor(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.specialist}"
+    
+
+
+class Appointment(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()
+    full_name = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=20)
+    message = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Appointment with {self.doctor.name} on {self.date} at {self.time}"
