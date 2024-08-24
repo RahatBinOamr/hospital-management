@@ -127,48 +127,22 @@ about-page
 		</div>
 
 		<div class="row">
+		{% for doctor in doctors %}
+		
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static 'images/team/1.jpg' %}" alt="" class="img-fluid w-100">
+					<img src="{{doctor.image.url}}" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">John Marshal</a></h4>
-						<p>Internist, Emergency Physician</p>
+						<h4 class="mt-4 mb-0"><a href="{% url 'doctor' doctor.slug %}">{{doctor.name}} </a></h4>
+						<p> {{doctor.specialist}} </p>
 					</div>
 				</div>
 			</div>
+		{% endfor %}
 
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static 'images/team/2.jpg' %}" alt="" class="img-fluid w-100">
+			
 
-					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Marshal Root</a></h4>
-						<p>Surgeon, Сardiologist</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static 'images/team/3.jpg' %}" alt="" class="img-fluid w-100">
-
-					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Siamon john</a></h4>
-						<p>Internist, General Practitioner</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block">
-					<img src="{% static 'images/team/4.jpg' %}" alt="" class="img-fluid w-100">
-
-					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Rishat Ahmed</a></h4>
-						<p>Orthopedic Surgeon</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

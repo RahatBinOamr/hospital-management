@@ -36,8 +36,8 @@ doctors
 
       <div class="col-12 text-center mb-5">
     <div class="btn-group btn-group-toggle" >
-        <a href="{% url 'doctors' %}" class="btn active">
-            <input type="radio" name="shuffle-filter" checked="checked"/>All Department
+        <a href="{% url 'doctors' %}" class="btn ">
+            <input type="radio" name="shuffle-filter"   />All Department
         </a>
 
         <a href="{% url 'cardiology_doctors' %}" class="btn">
@@ -45,11 +45,11 @@ doctors
         </a>
 
         <a href="{% url 'dental_doctors' %}" class="btn">
-            <input type="radio" name="shuffle-filter" />Dental
+            <input type="radio" name="shuffle-filter"  />Dental
         </a>
 
-        <a href="{% url 'pulmology_doctors' %}" class="btn">
-            <input type="radio" name="shuffle-filter"  />Pulmology
+        <a href="{% url 'pulmology_doctors' %}" class="btn active">
+            <input type="radio" name="shuffle-filter"  checked="checked"/>Pulmology
         </a>
 
         <a href="{% url 'child_care_doctors' %}" class="btn">
@@ -57,12 +57,12 @@ doctors
         </a>
 
         <a href="{% url 'opthomology_doctors' %}" class="btn">
-            <input type="radio" name="shuffle-filter" />Opthomology
+            <input type="radio" name="shuffle-filter"  />Opthomology
         </a>
 
         <a href="{% url 'gynecology_doctors' %}" class="btn">
             <input type="radio" name="shuffle-filter"  />Gynecology
-    	    </a>
+    	  </a>
     	</div>
 		</div>
 
