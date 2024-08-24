@@ -60,7 +60,8 @@ class Doctor(models.Model):
     phone = models.CharField(max_length=20)
     image = models.ImageField(upload_to='doctor')
     specialist = models.CharField(max_length=200)
-
+    department = models.ForeignKey(Department,on_delete=models.CASCADE,blank=True,null=True)
+    slug = AutoSlugField(populate_from='name',null=True)
 
     def __str__(self):
         return f"{self.name} - {self.specialist}"
@@ -78,4 +79,4 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"Appointment with {self.doctor.name} on {self.date} at {self.time}"
+        return f"Appointment with {self.doctor} on {self.date} at {self.time}"

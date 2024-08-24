@@ -26,6 +26,12 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 {% block script %}
 
 {% endblock script %}
@@ -84,7 +90,7 @@
 					<a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown03">
 						<li><a class="dropdown-item" href="{% url 'doctors' %}">Doctors</a></li>
-						<li><a class="dropdown-item" href="{% url 'doctor' %}">Doctor Single</a></li>
+						<li><a class="dropdown-item" href="{% url 'doctor' 'dr-bob-smith' %}">Doctor Single</a></li>
 						<li><a class="dropdown-item" href="{% url 'appointment' %}">Appoinment</a></li>
 					</ul>
 			  	</li>
@@ -230,6 +236,23 @@
     
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/contact.js' %}"></script>
+
+		<script>
+        $(document).ready(function(){
+            {% if messages %}
+                {% for message in messages %}
+                    Toastify({
+                        text: "{{ message }}",
+                        duration: 2000,
+                        close: true,
+                        gravity: "top", // 'top' or 'bottom'
+                        position: 'right', // 'left', 'right', 'center'
+                    }).showToast();
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
+
 
   </body>
   </html>
